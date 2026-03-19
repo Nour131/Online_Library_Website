@@ -92,3 +92,87 @@ a:active{
 .search-btn:hover{
     background-color:#2980b9;
 }
+
+  
+ .form-row {
+     display: flex;
+     gap: 30px;
+     margin-bottom: 20px;
+ }
+ 
+ .form-column {
+     flex: 1;
+     display: flex;
+     flex-direction: column;
+ }
+ 
+ input {
+     height: 40px;
+     font-size: 18px;
+     padding: 8px;
+     border-radius: 10px;
+ }
+ 
+ select {
+     height: 45px;
+     font-size: 18px;
+     padding: 8px;
+     border-radius: 10px;
+ }
+ 
+ textarea {
+     height: 120px;
+     font-size: 15px;
+     padding: 10px;
+     border-radius: 10px;
+ }
+ 
+ label {
+     font-size: 18px;
+     margin-bottom: 5px;
+     font-weight: bold;
+ }
+ /* Style the fieldset */
+ 
+fieldset {
+     width: 60%;
+     max-width: 800px;
+     margin: 40px auto;
+     padding: 30px;
+     border: 3px solid #6F4E37;
+     border-radius: 12px;
+     background-color: #f5efe6;
+ }
+ 
+ input[type="submit"],
+ input[type="reset"],
+ input[type="button"] {
+     background-color: #6F4E37;
+     color: white;
+     border: none;
+     padding: 12px 20px;
+     font-size: 16px;
+     border-radius: 8px;
+     cursor: pointer;
+     transition: 0.3s;
+ }
+ /* Hover effect */
+ 
+ input[type="submit"]:hover,
+ input[type="reset"]:hover {
+     background-color: #8B5E3C;
+     /* lighter brown on hover */
+ }
+ 
+ .back-button {
+     display: block;
+     margin: 20px 0 0 7%;
+     background-color: #6F4E37;
+     color: white;
+     padding: 12px 20px;
+     font-size: 16px;
+     border-radius: 8px;
+     text-decoration: none;
+     cursor: pointer;
+     transition: 0.3s;
+ }
