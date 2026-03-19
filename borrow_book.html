@@ -23,25 +23,41 @@
             </ul> 
         </nav>    
     </div>
-        <h1> Borrow Book </h1>
-        <form method ="post">
-          <div id="d1">
-          
-          <label for ="bookid">Book Id:</label><br/>
-          <input type="text" id="bookid" name="bookid" maxlength="20" required placeholder="Enter Book Id"> <br/>
-          <label for ="bookName">Book Name:</label><br/>
-          <input type="text" id="bookName" name="bookName" maxlength="70" required placeholder="Enter Book name"> <br/>
-          <label for ="author">Author:</label><br/>
-          <input type="text" id="author" name="author"  maxlength="40"> <br/>
-          <label for ="category">Category:</label><br/>
-          <input type="text" id="category" name="category"  maxlength="40"> <br/>
+        <h1 class="page-title"> Borrow Book </h1>
+        <div class="form-container">
+        <form method ="post" action="borrowed_books.php">
+          <div class ="form-row">
+            <div class="form-column">
+              <label for ="bookid">Book Id:</label><br/>
+              <input type="text" id="bookid" name="bookid" maxlength="20" required placeholder="Enter Book Id"> <br/>
+            </div>
+            <div class="form-column">
+              <label for ="bookName">Book Name:</label><br/>
+              <input type="text" id="bookName" name="bookName" maxlength="70" required placeholder="Enter Book name"> <br/>
+            </div>
+          <div class="form-row">
+              <div class="form-column">  
+              <label for ="author">Author:</label><br/>
+              <input type="text" id="author" name="author"  maxlength="40"> <br/>
+              </div>
+              <div class="form-column">
+              <label for ="category">Category:</label><br/>
+              <input type="text" id="category" name="category"  maxlength="40"> <br/>
+              </div>
+              </div>
+          <div class="form-row">
+              <div class="form-column">  
           <label for ="date">Borrow Date:</label><br/>
           <input type="date" id="date" name="date" required> <br/>
+          </div>
+          <div class="form-column">
           <label for="status">Status:</label><br/>
           <select id="status" name="status" disabled>
             <option value="available" selected>Available</option>
           </select><br/>
           <p>Note: Only available books can be borrowed.</p>
+          </div>
+          </div>
           <br/>
           <input type="submit" value="Borrow"> <br/>
         </div>
