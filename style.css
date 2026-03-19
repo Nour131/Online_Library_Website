@@ -4,6 +4,86 @@
     background-color: #fdf6e3;
 }
 
+/* Guest Page*/
+.welcome {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;   /* vertical center */
+    align-items: center;       /* horizontal center */
+    text-align: center;
+    background-image: url("guest_navbar_image.png");
+    
+    height: calc(100vh - 80px); /* full screen minus navbar */
+    padding: 20px;
+}
+
+.welcome h1 {
+    font-size: 42px;
+    margin-bottom: 20px;
+    color: #5c4033;
+}
+
+.welcome p {
+    font-size: 18px;
+    max-width: 700px;
+    line-height: 1.7;
+    color: #333;
+}
+/* user navbar */
+.user{
+    background-image: url("guest_navbar_image.png");
+}
+/* Admin navbar */
+.admin{
+    background-image: url("guest_navbar_image.png");
+}
+/* ABOUT SECTION */
+.about {
+    max-width: 800px;
+    margin: 60px auto;
+    padding: 40px;
+
+    background: rgba(255, 255, 255, 0.8); /* glass effect */
+    border-radius: 12px;
+
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+
+    backdrop-filter: blur(8px);
+}
+
+/* Headings */
+.about h1 {
+    text-align: center;
+    color: #5a3e2b;
+    margin-bottom: 20px;
+}
+
+.about h2 {
+    color: #6b4a3a;
+    margin-top: 25px;
+}
+
+/* Paragraphs */
+.about p {
+    line-height: 1.6;
+    color: #333;
+}
+
+/* Lists */
+.about ul {
+    padding-left: 20px;
+}
+
+.about li {
+    margin-bottom: 8px;
+}
+
+/* Smooth hover effect */
+.about:hover {
+    transform: scale(1.01);
+    transition: 0.3s ease;
+}
+
 /* Div Part */
 .logo h2{
     color:white;
@@ -33,12 +113,16 @@
     gap:20px;
 }
 
+a:link{
+    color: white;
+}
+
 a:visited{
     color:#f5e6ca;
 }
 
 a:hover{
-    color:rgb(206, 79, 153);
+    color:black;
 }
 
 a:active{
@@ -250,4 +334,223 @@ button{
 
 button:hover{
     background-color:#8B5E3C;
+}
+ 
+/*Login box */
+/*
+/* LOGIN CONTAINER */
+.login-container {
+    width: 350px;
+    margin: 100px auto;
+    padding: 30px;
+
+    background: rgba(255, 255, 255, 0.85); /* glass effect */
+    border-radius: 12px;
+
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+    backdrop-filter: blur(8px);
+
+    text-align: center;
+}
+
+/* Heading */
+.login-container h2 {
+    margin-bottom: 20px;
+    color: #5a3e2b;
+}
+
+/* Labels */
+.login-container label {
+    display: block;
+    text-align: left;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+/* Inputs */
+.login-container input[type="text"],
+.login-container input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0 15px;
+
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+/* Button */
+.login-container input[type="submit"] {
+    width: 100%;
+    padding: 12px;
+
+    background-color: #6b4a3a;
+    color: white;
+
+    border: none;
+    border-radius: 8px;
+
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.login-container input[type="submit"]:hover {
+    background-color: #5a3d30;
+}
+
+/* Link */
+.login-container a {
+    display: block;
+    margin-top: 15px;
+    color: #6b4a3a;
+    text-decoration: none;
+}
+
+.login-container a:hover {
+    text-decoration: underline;
+}
+
+/*
+/* Signup box */
+
+/* SIGNUP CONTAINER */
+.signup-container {
+    width: 400px;
+    margin: 80px auto;
+    padding: 30px;
+
+    background: rgba(255, 255, 255, 0.85); /* glass effect */
+    border-radius: 12px;
+
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+    backdrop-filter: blur(8px);
+
+    text-align: center;
+}
+
+/* Heading */
+.signup-container h2 {
+    margin-bottom: 20px;
+    color: #5a3e2b;
+}
+
+/* Labels */
+.signup-container label {
+    display: block;
+    text-align: left;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+/* Inputs */
+.signup-container input[type="text"],
+.signup-container input[type="email"],
+.signup-container input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0 15px;
+
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+/* Radio group */
+.radio-group {
+    text-align: left;
+    margin-bottom: 15px;
+}
+
+/* Button */
+.signup-container input[type="submit"] {
+    width: 100%;
+    padding: 12px;
+
+    background-color: #6b4a3a;
+    color: white;
+
+    border: none;
+    border-radius: 8px;
+
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.signup-container input[type="submit"]:hover {
+    background-color: #5a3d30;
+}
+
+/* Link */
+.signup-container a {
+    display: block;
+    margin-top: 15px;
+    color: #6b4a3a;
+    text-decoration: none;
+}
+
+.signup-container a:hover {
+    text-decoration: underline;
+}
+
+
+/* CONTACT PAGE */
+.contact-container {
+    max-width: 600px;
+    margin: 80px auto;
+    padding: 40px;
+
+    background: rgba(255, 255, 255, 0.85);
+    border-radius: 12px;
+
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+    backdrop-filter: blur(8px);
+
+    text-align: center;
+}
+
+/* Heading */
+.contact-container h1 {
+    color: #5a3e2b;
+    margin-bottom: 10px;
+}
+
+.contact-container p {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Form */
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Inputs */
+.contact-form input,
+.contact-form textarea {
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+}
+
+/* Button */
+.contact-form button {
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+
+    background-color: #6b4a3a;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.contact-form button:hover {
+    background-color: #5a3e2b;
+}
+
+/* Hover effect */
+.contact-container:hover {
+    transform: scale(1.01);
+    transition: 0.3s ease;
 }
