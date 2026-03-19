@@ -164,8 +164,7 @@ fieldset {
      /* lighter brown on hover */
  }
  
- .back-button {
-     display: block;
+.back-button {
      margin: 20px 0 0 7%;
      background-color: #6F4E37;
      color: white;
@@ -175,4 +174,6 @@ fieldset {
      text-decoration: none;
      cursor: pointer;
      transition: 0.3s;
+     display: inline-block;
+     width: auto;
  }
