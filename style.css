@@ -177,3 +177,77 @@ fieldset {
      display: inline-block;
      width: auto;
  }
+ 
+
+
+
+ .form-container {
+    display: flex;
+    justify-content: center; /* horizontal centering */
+    align-items: center;
+    flex-direction: column; /* stack fieldsets if multiple */
+}
+
+.form-row {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 20px;
+    flex-wrap: wrap; /* allows columns to stack on smaller screens */
+}
+
+.form-container form{
+    width:60%;
+    max-width:800px;
+    background-color:#f5efe6;
+    padding:30px;
+    border-radius:12px;
+    border:2px solid #6F4E37;
+    box-shadow:0 4px 10px rgba(0,0,0,0.15);
+}
+
+
+/* Borrowed Books Table */
+
+table{
+    width:80%;
+    margin:40px auto;
+    border-collapse:collapse;
+    background:white;
+    box-shadow:0 3px 10px rgba(0,0,0,0.15);
+    border-radius:8px;
+    overflow:hidden;
+}
+
+th, td{
+    padding:12px;
+    text-align:center;
+}
+
+th{
+    background-color:#6F4E37;
+    color:white;
+    font-weight:bold;
+}
+
+tr:nth-child(even){
+    background-color:#f2f2f2;
+}
+
+tr:hover{
+    background-color:#e9e3d6;
+}
+
+/* Return button */
+
+button{
+    background-color:#6F4E37;
+    color:white;
+    border:none;
+    padding:8px 14px;
+    border-radius:6px;
+    cursor:pointer;
+}
+
+button:hover{
+    background-color:#8B5E3C;
+}
