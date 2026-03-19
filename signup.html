@@ -14,16 +14,43 @@
                 <h2>Online Library</h2>
             </div>
              <ul class="nav-links">
-                <il><a href="home.html">Home</a></il>
-                <il><a href="about.html">About</a></il>
-                <il><a href="contact.html">Contact</a></il>
-                <il><a href="login.html">Login</a></il>
-                <il><a href="signup.html">Sign Up</a></il>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="signup.html">Sign Up</a></li>
             </ul> 
         </nav>    
     </div>
 
 
-    <h1>signup page</h1>    
+ <section class="signup-container">
+
+    <h2>Sign Up</h2>
+
+    <form action="Admin_navbar.html">
+        <label>Username:</label>
+        <input type="text" required>
+
+        <label>Email:</label>
+        <input type="email" required>
+
+        <label>Password:</label>
+        <input type="password" required>
+
+        <label>Confirm Password:</label>
+        <input type="password" required>
+
+        <div class="radio-group">
+            <p>Account Type:</p>
+            <input type="radio" name="role" value="user"> User
+            <input type="radio" name="role" value="admin"> Admin
+        </div>
+
+        <input type="submit" value="Sign Up">
+        
+    </form>
+
+</section>
+
 </body>
 </html>
