@@ -269,7 +269,7 @@ fieldset {
     display: flex;
     justify-content: center; /* horizontal centering */
     align-items: center;
-    flex-direction: column; /* stack fieldsets if multiple */
+    flex-direction: column;
 }
 
 .form-row {
