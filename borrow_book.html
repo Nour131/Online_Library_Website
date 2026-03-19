@@ -1,29 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Borrow Book Page</title>
-</head>
-<body>
-    <div class="user">
+      <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+        <title> Borrow Book Page </title>
+      </head>
+
+      <body>
+        <div class="user">
         <nav class = 'navbar'>
             <div class = 'logo'>
                 <h2>Online Library</h2>
             </div>
              <ul class="nav-links">
-                <il><a href="home.html">Home</a></il>
-                <il><a href="User_search.html">Search</a></il>
-                <il><a href="borrow_book.html">Borrow Book</a></il>
-                <il><a href="User_books_list.html">Available Books</a></il>
-                <il><a href="borrowed_books.html">My Borrowed Books</a></il>
-                <il><a href="home.html">Logout</a></il>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="User_search.html">Search</a></li>
+                <li><a href="borrow_book.html">Borrow Book</a></li>
+                <li><a href="User_books_list.html">Available Books</a></li>
+                <li><a href="borrowed_books.html">My Borrowed Books</a></li>
+                <li><a href="home.html">Logout</a></li>
             </ul> 
         </nav>    
     </div>
+        <h1> Borrow Book </h1>
+        <form method ="post" action="borrowed_books.php">
+          <div id="d1">
+          <label for ="bookName">Book Name:</label><br/>
+          <input type="text" id="bookName" name="bookName" maxlength="70" required placeholder="Enter Book name"> <br/>
+          <label for ="author">Author:</label><br/>
+          <input type="text" id="author" name="author"  maxlength="40"> <br/>
+          <label for ="category">Category:</label><br/>
+          <input type="text" id="category" name="category"  maxlength="40"> <br/>
+          <label for ="date">Borrow Date:</label><br/>
+          <input type="date" id="date" name="date" required> <br/>
+          <br/>
+          <input type="submit" value="Borrow"> <br/>
+        </div>
+        </form>
+      </body>
 
-    <h1>Borrow book page </h1>
+</html>      
 
-</body>
-</html>
+
