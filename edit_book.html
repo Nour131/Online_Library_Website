@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Edit Bood Page</title>
+    <title>Edit Book Page</title>
 </head>
+
 <body class="admin">
     <div>
-        <nav class = 'navbar'>
-            <div class = 'logo'>
+        <nav class='navbar'>
+            <div class='logo'>
                 <h2>Online Library</h2>
             </div>
             <ul class="nav-links">
@@ -19,13 +21,68 @@
                 <il><a href="add_book.html">Add Book</a></il>
                 <il><a href="edit_book.html">Edit Book</a></il>
                 <il><a href="delete_book.html">Delete Book</a></il>
-                <il><a href="home.html">Logout</a></il> 
-            </ul>    
+                <il><a href="home.html">Logout</a></il>
+            </ul>
         </nav>
-          
+
     </div>
 
-    <h1>Edit book page</h1>
-    
+    <input type="button" value="Back" class="back-button" onclick="window.location.href='Admin_search.html';">
+    <h1 align="center" style="margin-top: 40px;">Update Book Information</h1>
+    <fieldset>
+        <form method="post">
+            <div class="form-row">
+                <div class="form-column">
+                    <label for="BOOKID">Book ID</label>
+                    <input id="BOOKID" type="text" name="book_id" required>
+                </div>
+
+                <div class="form-column">
+                    <label for="BOOKNAME">Book Name</label>
+                    <input id="BOOKNAME" type="text" name="book_name">
+                </div>
+
+
+            </div>
+
+
+            <div class="form-row">
+                <div class="form-column">
+                    <label for="AUTHOR">Author</label>
+                    <input id="AUTHOR" type="text" name="author">
+                </div>
+
+                <div class="form-column">
+                    <label for="category">Category</label>
+                    <select id="category" name="category">
+                     <option  value ="Programming">Programming</option>
+                     <option  value ="AI">AI</option>
+                     <option  value ="Data Science">Data Science</option>
+                     <option  value ="Database">Database</option>
+                     <option  value ="Networking">Networking</option>
+                     <option  value ="Security">Security</option>
+                     <option  value ="Cloud Computing">Cloud Computing</option>
+
+                </select>
+
+                </div>
+
+            </div>
+
+
+            <div>
+                <label for="desc">Description:</label> <br/>
+                <textarea id="desc" rows="2" cols="30" name="description" placeholder="describe the book..."></textarea>
+
+            </div>
+            <br/>
+
+            <input type="submit" value="UPDATE BOOK">
+            <input type="reset" value="RESET ">
+            <input type="button" value="DELETE BOOK " onclick="alert( 'This would delete the book'); ">
+        </form>
+    </fieldset>
+
 </body>
+
 </html>
