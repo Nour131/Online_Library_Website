@@ -14,18 +14,21 @@
                 <h2>Online Library</h2>
             </div>
              <ul class="nav-links">
-                <li><a href="home.html">Home</a></li>
-                <li><a href="User_search.html">Search</a></li>
-                <li><a href="borrow_book.html">Borrow Book</a></li>
-                <li><a href="User_books_list.html">Available Books</a></li>
-                <li><a href="borrowed_books.html">My Borrowed Books</a></li>
-                <li><a href="home.html">Logout</a></li>
+                <il><a href="home.html">Home</a></li>
+                <il><a href="User_search.html">Search</a></li>
+                <il><a href="borrow_book.html">Borrow Book</a></li>
+                <il><a href="User_books_list.html">Available Books</a></li>
+                <il><a href="borrowed_books.html">My Borrowed Books</a></li>
+                <il><a href="home.html">Logout</a></li>
             </ul> 
         </nav>    
     </div>
         <h1> Borrow Book </h1>
         <form method ="post" action="borrowed_books.php">
           <div id="d1">
+          
+          <label for ="bookid">Book Id:</label><br/>
+          <input type="text" id="bookid" name="bookid" maxlength="20" > <br/>
           <label for ="bookName">Book Name:</label><br/>
           <input type="text" id="bookName" name="bookName" maxlength="70" required placeholder="Enter Book name"> <br/>
           <label for ="author">Author:</label><br/>
@@ -34,6 +37,10 @@
           <input type="text" id="category" name="category"  maxlength="40"> <br/>
           <label for ="date">Borrow Date:</label><br/>
           <input type="date" id="date" name="date" required> <br/>
+          <label for="status">Status:</label><br/>
+          <select id="status" name="status">
+            <option value="available" selected>Available</option>
+          </select><br/>
           <br/>
           <input type="submit" value="Borrow"> <br/>
         </div>
