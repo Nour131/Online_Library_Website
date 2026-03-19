@@ -1,17 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Borrowed Book Page</title>
-</head>
-<body class="user">
-    <div>
-        <nav class = 'navbar'>
-            <div class = 'logo'>
+<html lang = "en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+        <title>Borrowed Books Page </title>
+    </head>
+
+    <body class="user">
+        <div>
+            <nav class = 'navbar'>
+                <div class = 'logo'>
                 <h2>Online Library</h2>
-            </div>
+                </div>
              <ul class="nav-links">
                 <il><a href="home.html">Home</a></il>
                 <il><a href="User_search.html">Search</a></il>
@@ -20,9 +21,48 @@
                 <il><a href="borrowed_books.html">My Borrowed Books</a></il>
                 <il><a href="home.html">Logout</a></il>
             </ul> 
-        </nav>    
-    </div>
+            </nav>    
+        </div>
 
-    <h1>Borrowed Books page</h1>    
-</body>
+        <h1> My Borrowed Books </h1>
+        
+        <table>
+            <tr>
+                <th>Book Id</th>
+                <th>Book Name</th>
+                <th>Author</th>
+                <th>Category</th>
+                <th>Borrow Date</th>
+                <th>Status</th>
+                <th>Action</th>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>AI Basics</td>
+                <td>Tom Taulli</td>
+                <td>AI</td>
+                <td>2025-06-01</td>
+                <td>Borrowed</td>
+                <td><button>Return</button></td>
+            </tr>
+                <tr>
+                    <td>5</td>
+                    <td>Machine Learning</td>
+                    <td>Ryan Turner</td>
+                    <td>AI</td>
+                    <td>2025-09-05</td>
+                    <td>Borrowed</td>
+                    <td><button>Return</button></td>
+                </tr>
+                 <tr>
+                    <td>8</td>
+                    <td>Cybersecurity Basics</td>
+                    <td>Pete Michaels</td>
+                    <td>Security</td>
+                    <td>2025-08-10</td>
+                    <td>Borrowed</td>
+                    <td><button>Return</button></td>
+                </tr>
+        </table>
+    </body>
 </html>
