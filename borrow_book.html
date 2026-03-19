@@ -24,11 +24,11 @@
         </nav>    
     </div>
         <h1> Borrow Book </h1>
-        <form method ="post" action="borrowed_books.php">
+        <form method ="post">
           <div id="d1">
           
           <label for ="bookid">Book Id:</label><br/>
-          <input type="text" id="bookid" name="bookid" maxlength="20" > <br/>
+          <input type="text" id="bookid" name="bookid" maxlength="20" required placeholder="Enter Book Id"> <br/>
           <label for ="bookName">Book Name:</label><br/>
           <input type="text" id="bookName" name="bookName" maxlength="70" required placeholder="Enter Book name"> <br/>
           <label for ="author">Author:</label><br/>
@@ -38,9 +38,10 @@
           <label for ="date">Borrow Date:</label><br/>
           <input type="date" id="date" name="date" required> <br/>
           <label for="status">Status:</label><br/>
-          <select id="status" name="status">
+          <select id="status" name="status" disabled>
             <option value="available" selected>Available</option>
           </select><br/>
+          <p>Note: Only available books can be borrowed.</p>
           <br/>
           <input type="submit" value="Borrow"> <br/>
         </div>
