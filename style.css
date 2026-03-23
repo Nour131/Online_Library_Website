@@ -129,16 +129,14 @@ a:active{
     color : #3498db;
 } 
 
-
+/* Search Part */
 .page-title{
     text-align:center;
-    margin-top:40px;
+    margin-top:150px;
     font-size:32px;
     letter-spacing:1px;
 }
 
-
-/* Search Part */
 .search-section{
     display:flex;
     justify-content:center;
@@ -150,7 +148,6 @@ a:active{
 /* Search Input box */
 .search-section input{
     width:420px;
-    padding:12px;
     border-radius:8px;
     border:1px solid #ccc;
     outline:none;
