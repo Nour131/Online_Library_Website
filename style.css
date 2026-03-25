@@ -292,11 +292,9 @@ fieldset {
 table{
     width:80%;
     margin:40px auto;
-    border-collapse:collapse;
     background:white;
     box-shadow:0 3px 10px rgba(0,0,0,0.15);
     border-radius:8px;
-    overflow:hidden;
 }
 
 th, td{
