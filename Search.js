@@ -34,9 +34,11 @@ function displayResults(results) {
   results.forEach(book => {
     const bookCard = `
       <div class="book-card">
-        <h3>${book.title}</h3>
-        <p><strong>Author:</strong> ${book.author}</p>
-        <p><strong>Category:</strong> ${book.category}</p>
+        <img src="${book.image}" alt="${book.title}">
+        <div class="book-info">
+          <h3>${book.title}</h3>
+          <p><strong>Author:</strong> ${book.author}</p>
+          <p><strong>Category:</strong> ${book.category}</p>
       </div>
     `;
 
