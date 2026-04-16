@@ -27,23 +27,24 @@
 
     <h2>Sign Up</h2>
 
-    <form action="Admin_navbar.html">
+   <form id="signupForm">
         <label>Username:</label>
-        <input type="text" required>
+        <input type="text" id="username" required>
 
         <label>Email:</label>
-        <input type="email" required>
+       <input type="email" id="email" required>
+
 
         <label>Password:</label>
-        <input type="password" required>
+        <input type="password" id="password" required>
 
         <label>Confirm Password:</label>
-        <input type="password" required>
+        <input type="password" id="confirmPassword" required>
 
         <div class="radio-group">
             <p>Account Type:</p>
-            <input type="radio" name="role" value="user"> User
-            <input type="radio" name="role" value="admin"> Admin
+           <input type="radio" name="role" value="user"> User
+          <input type="radio" name="role" value="admin"> Admin
         </div>
 
         <input type="submit" value="Sign Up">
@@ -53,4 +54,5 @@
 </section>
 
 </body>
+<script src="Navbar.js"></script>
 </html>
