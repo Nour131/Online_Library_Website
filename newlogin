@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login Page</title>
+
+<style>
+/* ===== BODY ===== */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #e8dfcf;
+    margin: 0;
+}
+
+/* ===== NAVBAR ===== */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #6b4a3a;
+    padding: 15px 30px;
+}
+
+.logo h2 {
+    color: white;
+    margin: 0;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: #ffd8b1;
+}
+
+/* ===== LOGIN BOX ===== */
+.login-container {
+    width: 400px;
+    margin: 60px auto;
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    text-align: center;
+}
+
+.login-container h2 {
+    margin-bottom: 20px;
+}
+
+/* ===== INPUTS ===== */
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0 15px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+/* ===== BUTTON ===== */
+input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #6b4a3a;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #5a3d30;
+}
+
+/* ===== LINK ===== */
+a {
+    display: block;
+    margin-top: 15px;
+    text-decoration: none;
+    color: #6b4a3a;
+}
+
+/* ===== LOGOUT STYLE ===== */
+#logout {
+    cursor: pointer;
+    color: #ffb3b3;
+}
+#logout:hover {
+    color: red;
+}
+</style>
+
+</head>
+<body>
+
+<nav class='navbar'>
+    <div class='logo'>
+        <h2>Online Library</h2>
+    </div>
+    <ul class="nav-links" id="nav-links">
+        <!-- Dynamic -->
+    </ul> 
+</nav>
+
+<section class="login-container">
+    <h2>Login</h2>
+
+    <form id="loginForm">
+
+        <label>Email:</label>
+        <input type="email" id="loginEmail">
+
+        <label>Password:</label>
+        <input type="password" id="loginPassword">
+
+        <input type="submit" value="Login">
+
+    </form>
+
+    <a href="signup.html">Create new account</a>
+</section>
+
+<script>
+// ================= LOGIN LOGIC =================
+document.getElementById("loginForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    let email = document.getElementById("loginEmail").value.trim();
+    let password = document.getElementById("loginPassword").value;
+
+    if (!email || !password) {
+        alert("All fields are required!");
+        return;
+    }
+
+    let emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+    if (!email.match(emailPattern)) {
+        alert("Enter valid email!");
+        return;
+    }
+
+    let users = JSON.parse(localStorage.getItem("users")) || [];
+
+    if (users.length === 0) {
+        alert("No users found! Please sign up first.");
+        return;
+    }
+
+    let user = users.find(u => u.email === email && u.password === password);
+
+    if (!user) {
+        alert("Invalid email or password!");
+        return;
+    }
+
+    
+    localStorage.setItem("currentUser", JSON.stringify(user));
+
+    alert("Login successful!");
+
+    if (user.role === "admin") {
+        window.location.href = "admin.html";
+    } else {
+        window.location.href = "user.html";
+    }
+});
+</script>
+</body>
+</html>
