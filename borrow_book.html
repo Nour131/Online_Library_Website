@@ -20,12 +20,11 @@
                 <li><a href="borrowed_books.html">My Borrowed Books</a></li>
                 <li><a href="Guest_navbar.html">Logout</a></li>
             </ul> 
-
         </nav>    
     </div>
         <h1 class="page-title"> Borrow Book </h1>
         <div class="form-container">
-        <form method ="post" action="borrowed_books.php">
+        <form id="borrowForm">
           <div class ="form-row">
             <div class="form-column">
               <label for ="bookid">Book Id:</label><br/>
@@ -46,11 +45,7 @@
               </div>
               </div>
           <div class="form-row">
-              <div class="form-column">  
-          <label for ="date">Borrow Date:</label><br/>
-          <input type="date" id="date" name="date" required> <br/>
-          </div>
-          <div class="form-column">
+              <div class="form-column">
           <label for="status">Status:</label><br/>
           <select id="status" name="status" disabled>
             <option value="available" selected>Available</option>
@@ -62,8 +57,7 @@
           <input type="submit" value="Borrow"> <br/>
         </div>
         </form>
+        <script src="borrow_book.js"></script>
       </body>
 
-</html>      
-
-
+</html>
