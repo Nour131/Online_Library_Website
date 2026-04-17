@@ -28,7 +28,7 @@
 
     <h1 align="center" style="margin-top: 40px;">Update Book Information</h1>
     <fieldset>
-        <form method="post">
+        <form id="editBookForm">
             <div class="form-row">
                 <div class="form-column">
                     <label for="BOOKID">Book ID</label>
@@ -76,10 +76,12 @@
             <br/>
 
             <input type="submit" value="UPDATE BOOK">
-            <input type="reset" value="RESET ">
-            <input type="button" value="DELETE BOOK " onclick="alert( 'This would delete the book'); ">
+            <input type="reset" value="RESET">
+            <input type="button" value="DELETE BOOK" onclick="deleteBook()">
         </form>
     </fieldset>
+
+    <script src="edit_book.js"></script>
 
 </body>
 
