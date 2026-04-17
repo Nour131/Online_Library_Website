@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Book Details</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="user">
+
+    <div>
+        <nav class='navbar'>
+            <div class='logo'>
+                <h2>Online Library</h2>
+            </div>
+            <ul class="nav-links">
+                <li><a href="User_search.html">Search</a></li>
+                <li><a href="borrow_book.html">Borrow Book</a></li>
+                <li><a href="User_books_list.html">Available Books</a></li>
+                <li><a href="borrowed_books.html">My Borrowed Books</a></li>
+                <li><a href="Guest_navbar.html">Logout</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <h2 class="page-title" id="bookTitle"></h2>
+
+    <div style="text-align:center; margin-top:30px;">
+
+        <img id="bookImage" width="200">
+
+        <br><br>
+
+        <table>
+            <tr>
+                <td><b>Author</b></td>
+                <td id="bookAuthor"></td>
+            </tr>
+            <tr>
+                <td><b>Category</b></td>
+                <td id="bookCategory"></td>
+            </tr>
+            <tr>
+                <td><b>Status</b></td>
+                <td id="bookStatus"></td>
+            </tr>
+            <tr>
+                <td><b>Description</b></td>
+                <td id="bookDescription"></td>
+            </tr>
+        </table>
+
+        <br>
+
+        <div id="borrowSection"></div>
+
+        <br><br>
+
+        <a href="User_books_list.html" class="back-button">Back</a>
+
+    </div>
+
+    <script src="fullbooks_data.js"></script>
+    <script src="book_details.js"></script>
+
+</body>
+</html>
