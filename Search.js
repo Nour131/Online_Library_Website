@@ -1,3 +1,16 @@
+
+/*localStorage.removeItem("books");*/
+
+const currentUser = JSON.parse(sessionStorage.getItem("currentUser"));
+
+if (currentUser?.role === "admin") {
+  console.log("Admin view");
+  // You can add admin-only features here
+} else {
+  console.log("User view");
+}
+
+
 if (!localStorage.getItem("books")) {
   localStorage.setItem("books", JSON.stringify(books));
 }
@@ -33,14 +46,15 @@ function displayResults(results) {
 
   results.forEach(book => {
     const bookCard = `
-      <div class="book-card">
-        <img src="${book.image}" alt="${book.title}">
-        <div class="book-info">
-          <h3>${book.title}</h3>
-          <p><strong>Author:</strong> ${book.author}</p>
-          <p><strong>Category:</strong> ${book.category}</p>
-      </div>
-    `;
+    <div class="book-card">
+      <img src="${book.image}" alt="${book.title}">
+      <div class="book-info">
+        <h3>${book.title}</h3>
+        <p><strong>Author:</strong> ${book.author}</p>
+        <p><strong>Category:</strong> ${book.category}</p>
+    </div>
+  </div>
+`;
 
     container.innerHTML += bookCard;
   });
