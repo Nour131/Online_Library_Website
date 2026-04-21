@@ -38,21 +38,15 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("bookStatus").textContent = status;
     document.getElementById("bookImage").src = book.image;
 
-    // Borrow button logic
-    let borrowSection = document.getElementById("borrowSection");
+    
+const statusElement = document.getElementById("bookStatus");
 
-    if (status === "Available") {
-        borrowSection.innerHTML = `
-            <a href="borrow_book.html" class="back-button">
-                Borrow Book
-            </a>
-        `;
-    } else {
-        borrowSection.innerHTML = `
-            <button class="back-button" style="background-color:gray;" disabled>
-                Not Available
-            </button>
-        `;
-    }
+statusElement.textContent = status;
+
+if (status === "Available") {
+    statusElement.classList.add("available");
+} else {
+    statusElement.classList.add("borrowed");
+}
 
 });
