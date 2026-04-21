@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Admin Book List page</title>
+    <title>Book List page</title>
 </head>
 <body class="admin">
     <div>
@@ -12,13 +12,7 @@
             <div class = 'logo'>
                 <h2>Online Library</h2>
             </div>
-            <ul class="nav-links">
-                <li><a href="Admin_search.html">Search</a></li>
-                <li><a href="Admin_books_list.html">View Books</a></li>
-                <li><a href="add_book.html">Add Book</a></li>
-                <li><a href="edit_book.html">Edit Book</a></li>
-                <li><a href="Guest_navbar.html">Logout</a></li> 
-            </ul>    
+            <ul id = "nav-links" class="nav-links"></ul>    
         </nav>         
     </div>
 
@@ -34,13 +28,11 @@
     </tr>
 
      </thead>
-    <tbody id="adminBookTableBody">
-        <!-- Books will be loaded here dynamically -->
-    </tbody>
+    <tbody id="adminBookTableBody"></tbody>
 </table>
 <script src="fullbooks_data.js"></script>
-<script src="admin_books_list.js"></script>
+<script src="books_list.js"></script>
+<script src="Navbar.js"></script>
 
-   
 </body>
 </html>
