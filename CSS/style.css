@@ -1,5 +1,5 @@
  body{
-    margin:0;
+    margin:0; /*remove browsers auto margin to body*/
     font-family: Arial, sans-serif;
     background-color: #fdf6e3;
 }
@@ -11,8 +11,7 @@
     justify-content: center;   /* vertical center */
     align-items: center;       /* horizontal center */
     text-align: center;
-    background-image: url("guest_navbar_image.png");
-    
+    background-image: url("images/guest_navbar_image.png");
     height: calc(100vh - 80px); /* full screen minus navbar */
     padding: 20px;
 }
@@ -31,60 +30,16 @@
 }
 /* user navbar */
 .user{
-    background-image: url("guest_navbar_image.png");
+    background-image: url("images/guest_navbar_image.png");
 }
 /* Admin navbar */
 .admin{
-    background-image: url("guest_navbar_image.png");
-}
-/* ABOUT SECTION */
-.about {
-    max-width: 800px;
-    margin: 60px auto;
-    padding: 40px;
-
-    background: rgba(255, 255, 255, 0.8); /* glass effect */
-    border-radius: 12px;
-
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
-
-    backdrop-filter: blur(8px);
+    background-image: url("images/guest_navbar_image.png");
 }
 
-/* Headings */
-.about h1 {
-    text-align: center;
-    color: #5a3e2b;
-    margin-bottom: 20px;
-}
+/*----------------------------------------------------------------------------------*/
 
-.about h2 {
-    color: #6b4a3a;
-    margin-top: 25px;
-}
-
-/* Paragraphs */
-.about p {
-    line-height: 1.6;
-    color: #333;
-}
-
-/* Lists */
-.about ul {
-    padding-left: 20px;
-}
-
-.about li {
-    margin-bottom: 8px;
-}
-
-/* Smooth hover effect */
-.about:hover {
-    transform: scale(1.01);
-    transition: 0.3s ease;
-}
-
-/* Div Part */
+/* Navbar */
 .logo h2{
     color:white;
     letter-spacing:1px;
@@ -92,12 +47,12 @@
 
 /* Nav Bar */
 .navbar{
-    display:flex;
+    display:flex; /* flex box of logo + links */
     justify-content:space-between;
     align-items:center;
     background-color:#5c4033;
     padding:15px 30px;
-    box-shadow:0 3px 10px rgba(0,0,0,0.2);
+    box-shadow:0 3px 10px rgba(0,0,0,0.2);  /* 0 -> no horizontal shift, 3px -> shadow moves down, 10px-> blur*/
 }
 
 .navbar a{
@@ -109,7 +64,7 @@
 /* Links */
 .nav-links{
     list-style:none;
-    display:flex;
+    display:flex; /* make il appears horizontal 'side by side'*/
     gap:20px;
 }
 
@@ -129,6 +84,121 @@ a:active{
     color : #3498db;
 } 
 
+/*----------------------------------------------------------------------------------*/
+
+/* ABOUT Page */
+.about {
+    max-width: 800px;/* Prevents text from stretching too wide*/
+    margin: 60px auto; 
+    padding: 40px; /* inner spacing */
+
+    background: rgba(255, 255, 255, 0.8); /* glass effect */
+    border-radius: 12px;
+
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+
+    backdrop-filter: blur(8px); /*blur behind box*/
+}
+
+/* Headings */
+.about h1 {
+    text-align: center;
+    color: #5a3e2b;
+    margin-bottom: 20px;
+}
+
+.about h2 {
+    color: #6b4a3a;
+    margin-top: 25px;
+}
+
+/* About Paragraphs */
+.about p {
+    line-height: 1.6;
+    color: #333;
+}
+
+/* About Lists */
+.about ul {
+    padding-left: 20px; /* move list to the right, Keeps bullet points aligned nicely*/
+}
+ /* About list items */
+.about li {
+    margin-bottom: 8px;
+}
+
+/* Smooth hover effect */
+.about:hover {
+    transform: scale(1.01); /* zoom effect when hover*/
+    transition: 0.3s ease;
+}
+
+/*----------------------------------------------------------------------------------*/
+
+/* CONTACT PAGE */
+.contact-container {
+    max-width: 600px;
+    margin: 80px auto;
+    padding: 40px; /*space inside the container between the content and the edges*/
+
+    background: rgba(255, 255, 255, 0.85);
+    border-radius: 12px;
+
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+    backdrop-filter: blur(8px);
+
+    text-align: center;
+}
+
+/* Heading */
+.contact-container h1 {
+    color: #5a3e2b;
+    margin-bottom: 10px;
+}
+
+.contact-container p {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Form */
+.contact-form {
+    display: flex;
+    flex-direction: column; /* place elements vertically one under another*/
+    gap: 15px;
+}
+
+/* Inputs */
+.contact-form input,
+.contact-form textarea {
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+}
+
+/* Button */
+.contact-form button {
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    background-color: #6b4a3a;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.contact-form button:hover {
+    background-color: #5a3e2b;
+}
+
+/* Hover effect */
+.contact-container:hover {
+    transform: scale(1.01); /* zoom effect */
+    transition: 0.3s ease;
+}
+
+/*----------------------------------------------------------------------------------*/
 /* Search Part */
 .page-title{
     text-align:center;
@@ -138,10 +208,10 @@ a:active{
 }
 
 .search-section{
-    display:flex;
+    display:flex; /*Make input box and button set in one row*/
     justify-content:center;
     align-items:center;
-    gap:12px;
+    gap:12px; /* add space between input box and button */
     margin:50px;
 }
 
@@ -150,23 +220,23 @@ a:active{
     width:420px;
     border-radius:8px;
     border:1px solid #ccc;
-    outline:none;
-    font-size:15px;
+    outline:none; /* remove browser's default blue outline*/
+    font-size:15px; /* typing font size*/
     box-shadow:0 2px 6px rgba(0,0,0,0.1);
 } 
 
 /* Search button */
 .search-btn{
-    padding:12px 22px;
+    padding:15px 22px;
     background-color:#3498db;
     border:none;
-    color:white;
+    color:white; /* text color*/
     border-radius:8px;
     cursor:pointer;
     font-weight:bold;
 }
 
-.search-section input:focus{
+.search-section input:focus{ /* when user click input box*/
     border-color:#3498db;
 }
 
@@ -174,12 +244,12 @@ a:active{
     background-color:#2980b9;
 }
 
-
 /* Result contaniner*/
 #resultsContainer {
     margin-top: 30px;
     padding: 10px;
 }
+
 
 .book-card {
     display: flex;
@@ -227,9 +297,100 @@ a:active{
     margin-right: auto;
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
-/*-------------------------------------------*/
+
+
+/*----------------------------------------------------------------------------------*/
+/* Book details card*/
+
+.details-card {
+    max-width: 700px;
+    margin: 30px auto;
+    padding: 25px 30px;
+
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 12px;
+
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    backdrop-filter: blur(6px);
+}
+
+/* Each row */
+.detail-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Remove last border */
+.detail-row:last-child {
+    border-bottom: none;
+}
+
+/* Labels */
+.label {
+    font-weight: bold;
+    color: #5c4033;
+}
+
+/* Values */
+.value {
+    color: #333;
+    text-align: right;
+    max-width: 60%;
+}
+
+/* Description special */
+.description {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* center title */
+    text-align: center;
+    margin-top: 15px;
+}
+
+.description .value {
+    max-width: 100%;
+    width: 100%;
+    text-align: left;   /* keep text readable */
+    margin-top: 10px;
+    line-height: 1.7;
+}
+
+/* Status colors */
+.status {
+    font-weight: bold;
+    padding: 4px 10px;
+    border-radius: 6px;
+}
+
+.status.available {
+    background-color: #d4edda;
+    color: #2e7d32;
+}
+
+.status.borrowed {
+    background-color: #f8d7da;
+    color: #c0392b;
+}
+
+.back-button {
+    display: inline-block;
+    background-color: #6F4E37;
+    color: white;
+    padding: 10px 18px;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.back-button:hover {
+    background-color: #8B5E3C;
+}
+
+/*----------------------------------------------------------------------------------*/
   
- .form-row {
+.form-row {
      display: flex;
      gap: 30px;
      margin-bottom: 20px;
@@ -313,10 +474,7 @@ fieldset {
      width: auto;
  }
  
-
-
-
- .form-container {
+.form-container {
     display: flex;
     justify-content: center; /* horizontal centering */
     align-items: center;
@@ -341,6 +499,7 @@ fieldset {
 }
 
 
+/*----------------------------------------------------------------------------------*/
 /* Borrowed Books Table */
 
 table{
@@ -349,6 +508,7 @@ table{
     background:white;
     box-shadow:0 3px 10px rgba(0,0,0,0.15);
     border-radius:8px;
+
 }
 
 th, td{
@@ -384,10 +544,11 @@ button{
 button:hover{
     background-color:#8B5E3C;
 }
- 
+
+
+/*----------------------------------------------------------------------------------*/
 /*Login box */
-/*
-/* LOGIN CONTAINER */
+
 .login-container {
     width: 350px;
     margin: 100px auto;
@@ -458,10 +619,9 @@ button:hover{
     text-decoration: underline;
 }
 
-/*
+/*----------------------------------------------------------------------------------*/
 /* Signup box */
 
-/* SIGNUP CONTAINER */
 .signup-container {
     width: 400px;
     margin: 80px auto;
@@ -537,69 +697,4 @@ button:hover{
 
 .signup-container a:hover {
     text-decoration: underline;
-}
-
-
-/* CONTACT PAGE */
-.contact-container {
-    max-width: 600px;
-    margin: 80px auto;
-    padding: 40px;
-
-    background: rgba(255, 255, 255, 0.85);
-    border-radius: 12px;
-
-    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
-    backdrop-filter: blur(8px);
-
-    text-align: center;
-}
-
-/* Heading */
-.contact-container h1 {
-    color: #5a3e2b;
-    margin-bottom: 10px;
-}
-
-.contact-container p {
-    color: #333;
-    margin-bottom: 20px;
-}
-
-/* Form */
-.contact-form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-/* Inputs */
-.contact-form input,
-.contact-form textarea {
-    padding: 12px;
-    border-radius: 8px;
-    border: 1px solid #ccc;
-    font-size: 14px;
-}
-
-/* Button */
-.contact-form button {
-    padding: 12px;
-    border: none;
-    border-radius: 8px;
-
-    background-color: #6b4a3a;
-    color: white;
-    font-size: 16px;
-    cursor: pointer;
-}
-
-.contact-form button:hover {
-    background-color: #5a3e2b;
-}
-
-/* Hover effect */
-.contact-container:hover {
-    transform: scale(1.01);
-    transition: 0.3s ease;
 }
