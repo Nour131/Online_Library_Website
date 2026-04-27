@@ -1,33 +1,25 @@
-// Get current user
-document.addEventListener("DOMContentLoaded", function () {
+//only run this code when the html page is fully loaded, to prevent accessing elements that aren't ready
+document.addEventListener("DOMContentLoaded", function () { 
+    let currentUser = JSON.parse(sessionStorage.getItem("currentUser")); // get current user as a string then convert it into js object
+    let navLinks = document.getElementById("nav-links"); // get the ul with the navbar links
 
-    let currentUser = JSON.parse(sessionStorage.getItem("currentUser"));
-    let navLinks = document.getElementById("nav-links");
 
-    if (!navLinks) return; // safety
-
-    if (currentUser) {
-        document.body.className = currentUser.role; // "user" or "admin"
+    if (currentUser?.role) {
+        document.body.className = currentUser.role; // apply the css body based on currentuser: "user" or "admin"
     }
 
-    if (!currentUser) {
-        navLinks.innerHTML = `
-            <li><a href="about.html">About</a></li>
-            <li><a href="contact.html">Contact</a></li>
-            <li><a href="login.html">Login</a></li>
-            <li><a href="signup.html">Sign Up</a></li>
-        `;
-    } 
-    else if (currentUser.role === "user") {
+    if (!navLinks) return;// if the ul is not found stop running the code to prevent runtime errors
+    
+    else if (currentUser?.role === "user") {  // for user
         navLinks.innerHTML = `
             <li><a href="search.html">Search</a></li>
+            <li><a href="books_list.html">View Books</a></li>
             <li><a href="borrow_book.html">Borrow Book</a></li>
-            <li><a href="books_list.html">Available Books</a></li>
             <li><a href="borrowed_books.html">My Borrowed Books</a></li>
             <li><a href="#" onclick="logout()">Logout</a></li>
         `;
     } 
-    else if (currentUser.role === "admin") {
+    else if (currentUser?.role === "admin") { // for admin
         navLinks.innerHTML = `
             <li><a href="search.html">Search</a></li>
             <li><a href="books_list.html">View Books</a></li>
@@ -37,12 +29,23 @@ document.addEventListener("DOMContentLoaded", function () {
         `;
     }
 
+    let welcomeMessage = document.getElementById("welcomeMessage");
+
+    if (welcomeMessage && currentUser) {
+        welcomeParagraph.style.display = "none";
+        if (currentUser.role === "admin") {
+            welcomeMessage.textContent = "Welcome Admin!";
+        } else {
+            welcomeMessage.textContent = "Welcome User!";
+        }
+    }
+
 });
 
 // logout outside
 function logout() {
     sessionStorage.removeItem("currentUser");
-    window.location.href = "Guest_navbar.html";
+    window.location.href = "index.html";
 }
 
 function login(email, password) {
@@ -62,6 +65,7 @@ function login(email, password) {
         alert("Invalid login");
     }
 }
+
 // SIGNUP FUNCTION
 document.getElementById("signupForm")?.addEventListener("submit", function(e) {
     e.preventDefault();
@@ -104,11 +108,12 @@ document.getElementById("signupForm")?.addEventListener("submit", function(e) {
 
     // redirect
     if (role === "admin") {
-        window.location.href = "Admin_navbar.html";
+        window.location.href = "index.html";
     } else {
-        window.location.href = "User_navbar.html";
+        window.location.href = "index.html";
     }
 });
+
 // HANDLE LOGIN FORM
 document.getElementById("loginForm")?.addEventListener("submit", function(e) {
     e.preventDefault();
@@ -123,11 +128,10 @@ document.getElementById("loginForm")?.addEventListener("submit", function(e) {
     if (user) {
         sessionStorage.setItem("currentUser", JSON.stringify(user));
 
-        if (user.role === "admin") {
-            window.location.href = "Admin_navbar.html";
-        } else {
-            window.location.href = "User_navbar.html";
-        }
+        if (user.role) {
+            window.location.href = "index.html";
+        } 
+
     } else {
         alert("Invalid email or password");
     }
