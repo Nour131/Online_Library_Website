@@ -4,7 +4,8 @@ function loadBorrowedBooks() {
         borrowedBooks = JSON.parse(localStorage.getItem("borrowedBooks")) || [];
     } catch(e) { borrowedBooks = []; }
 
-    let myBorrows = borrowedBooks;
+    // Only show books that are currently borrowed
+    let myBorrows = borrowedBooks.filter(b => b.status === "Borrowed");
 
     let tbody = document.getElementById("borrowedTableBody");
     tbody.innerHTML = "";
@@ -23,10 +24,7 @@ function loadBorrowedBooks() {
             "<td>" + borrow.author + "</td>" +
             "<td>" + borrow.category + "</td>" +
             "<td>" + borrow.status + "</td>" +
-            "<td>" + (borrow.status === "Borrowed"
-                ? "<button onclick='returnBook(" + borrow.borrowId + ")'>Return</button>"
-                : "Returned") +
-            "</td>";
+            "<td><button class='return-btn' onclick='returnBook(" + borrow.borrowId + ")'>Return</button></td>";
         tbody.appendChild(row);
     }
 }
@@ -46,9 +44,11 @@ function returnBook(borrowId) {
         return;
     }
 
+    // Mark as returned in storage (keeps history intact)
     record.status = "Returned";
     localStorage.setItem("borrowedBooks", JSON.stringify(borrowedBooks));
 
+    // Mark book as available again
     let books = [];
     try {
         books = JSON.parse(localStorage.getItem("books")) || [];
