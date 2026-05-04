@@ -4,35 +4,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Book List page</title>
+    <title>Books List</title>
 </head>
+
 <body>
     <div>
-        <nav class = 'navbar'>
-            <div class = 'logo'>
+        <nav class='navbar'>
+            <div class='logo'>
                 <h2>Online Library</h2>
             </div>
-            <ul id = "nav-links" class="nav-links"></ul>    
-        </nav>         
+            <ul id="nav-links" class="nav-links"></ul> 
+        </nav>    
     </div>
 
-       <table>
-    <tr>
-      <thead>
-       <th>ID</th>
-       <th>Book Name</th>
-       <th>Author</th>
-       <th>Category</th>
-       <th>Status</th>
-       <th>Details</th>
-    </tr>
+    <h1 class="page-title">Books List</h1>
 
-     </thead>
-    <tbody id="adminBookTableBody"></tbody>
-</table>
-<script src="fullbooks_data.js"></script>
-<script src="books_list.js"></script>
-<script src="Navbar.js"></script>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Book Name</th>
+                <th>Author</th>
+                <th>Category</th>
+                <th>Status</th>
+                <th>Details</th>
+                <th>Action</th>
+            </tr>
+        </thead>
 
+        <tbody id="bookTableBody"></tbody>
+    </table>
+
+    <script src="fullbooks_data.js"></script>
+    <script src="books_list.js"></script>
+    <script src="Navbar.js"></script>
 </body>
 </html>
