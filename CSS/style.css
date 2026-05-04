@@ -1,4 +1,4 @@
- body{
+body{
     margin:0; /*remove browsers auto margin to body*/
     font-family: Arial, sans-serif;
     background-color: #fdf6e3;
@@ -374,6 +374,23 @@ a:active{
     color: #c0392b;
 }
 
+/* Status colors used directly on td (book_details.js) */
+.available {
+    font-weight: bold;
+    color: #2e7d32;
+    background-color: #d4edda;
+    padding: 4px 10px;
+    border-radius: 6px;
+}
+
+.borrowed {
+    font-weight: bold;
+    color: #c0392b;
+    background-color: #f8d7da;
+    padding: 4px 10px;
+    border-radius: 6px;
+}
+
 .back-button {
     display: inline-block;
     background-color: #6F4E37;
@@ -530,21 +547,49 @@ tr:hover{
     background-color:#e9e3d6;
 }
 
-/* Return button */
-
-button{
-    background-color:#6F4E37;
-    color:white;
-    border:none;
-    padding:8px 14px;
-    border-radius:6px;
-    cursor:pointer;
+/* General button (default brown — used in tables etc.) */
+button {
+    background-color: #6F4E37;
+    color: white;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.2s;
 }
 
-button:hover{
-    background-color:#8B5E3C;
+button:hover {
+    background-color: #8B5E3C;
 }
 
+/* Borrow button — green */
+.borrow-btn {
+    background-color: #2e7d32;
+    padding: 12px 32px;
+    font-size: 1rem;
+}
+
+.borrow-btn:hover {
+    background-color: #1b5e20;
+}
+
+/* Return button — red */
+.return-btn {
+    background-color: #c62828;
+    padding: 12px 32px;
+    font-size: 1rem;
+}
+
+.return-btn:hover {
+    background-color: #8b0000;
+}
+
+/* Shown when book is borrowed by someone else */
+.unavailable-msg {
+    color: #b71c1c;
+    font-weight: 500;
+    font-size: 1rem;
+}
 
 /*----------------------------------------------------------------------------------*/
 /*Login box */
