@@ -1,6 +1,4 @@
 document.addEventListener("DOMContentLoaded", function () {
-
-    // Get book ID from URL
     const params = new URLSearchParams(window.location.search);
     const bookId = params.get("id");
 
@@ -13,40 +11,116 @@ document.addEventListener("DOMContentLoaded", function () {
     let books = JSON.parse(localStorage.getItem("books")) || [];
     let borrowedBooks = JSON.parse(localStorage.getItem("borrowedBooks")) || [];
 
-    // Find the selected book
     let book = books.find(b => String(b.id) === String(bookId));
-
     if (!book) {
         alert("Book not found.");
         window.location.href = "User_books_list.html";
         return;
     }
 
-    // Check borrowed status
-    let isBorrowed = borrowedBooks.some(b =>
-        String(b.bookId) === String(book.id) &&
-        b.status === "Borrowed"
-    );
+    function isBorrowedByUser() {
+        let borrowedBooks = JSON.parse(localStorage.getItem("borrowedBooks")) || [];
+        return borrowedBooks.some(
+            b => String(b.bookId) === String(book.id) && b.status === "Borrowed"
+        );
+    }
 
-    let status = (!book.available || isBorrowed) ? "Borrowed" : "Available";
+    function getStatus() {
+        return (!book.available || isBorrowedByUser()) ? "Borrowed" : "Available";
+    }
 
-    // Fill data
+    // Fill static data
     document.getElementById("bookTitle").textContent = book.title;
     document.getElementById("bookAuthor").textContent = book.author;
     document.getElementById("bookCategory").textContent = book.category;
     document.getElementById("bookDescription").textContent = book.description;
-    document.getElementById("bookStatus").textContent = status;
     document.getElementById("bookImage").src = book.image;
 
-    
-const statusElement = document.getElementById("bookStatus");
+    function renderStatusAndButtons() {
+        const status = getStatus();
+        const statusElement = document.getElementById("bookStatus");
+        statusElement.textContent = status;
+        statusElement.className = "";
+        statusElement.classList.add(status === "Available" ? "available" : "borrowed");
 
-statusElement.textContent = status;
+        const borrowSection = document.getElementById("borrowSection");
 
-if (status === "Available") {
-    statusElement.classList.add("available");
-} else {
-    statusElement.classList.add("borrowed");
-}
+        if (status === "Available") {
+            borrowSection.innerHTML = `
+                <button id="borrowBtn" class="borrow-btn">Borrow Book</button>
+            `;
+            document.getElementById("borrowBtn").addEventListener("click", handleBorrow);
+        } else if (isBorrowedByUser()) {
+            borrowSection.innerHTML = `
+                <button id="returnBtn" class="return-btn">Return Book</button>
+            `;
+            document.getElementById("returnBtn").addEventListener("click", handleReturn);
+        } else {
+            // Borrowed by someone else
+            borrowSection.innerHTML = `<p class="unavailable-msg">This book is currently unavailable.</p>`;
+        }
+    }
 
+    function handleBorrow() {
+        let borrowedBooks = JSON.parse(localStorage.getItem("borrowedBooks")) || [];
+
+        let alreadyBorrowed = borrowedBooks.some(
+            b => String(b.bookId) === String(book.id) && b.status === "Borrowed"
+        );
+        if (alreadyBorrowed) {
+            alert("You have already borrowed this book. Please return it first.");
+            return;
+        }
+
+        let newBorrow = {
+            borrowId: Date.now(),
+            userId: "guest",
+            userName: "Guest",
+            bookId: String(book.id),
+            bookName: book.title,
+            author: book.author || "",
+            category: book.category || "",
+            status: "Borrowed"
+        };
+
+        borrowedBooks.push(newBorrow);
+        localStorage.setItem("borrowedBooks", JSON.stringify(borrowedBooks));
+
+        // Mark book as unavailable
+        let books = JSON.parse(localStorage.getItem("books")) || [];
+        let b = books.find(b => String(b.id) === String(book.id));
+        if (b) {
+            b.available = false;
+            localStorage.setItem("books", JSON.stringify(books));
+            book.available = false;
+        }
+
+        alert("Book borrowed successfully!");
+        renderStatusAndButtons();
+    }
+
+    function handleReturn() {
+        let borrowedBooks = JSON.parse(localStorage.getItem("borrowedBooks")) || [];
+        borrowedBooks = borrowedBooks.map(b => {
+            if (String(b.bookId) === String(book.id) && b.status === "Borrowed") {
+                return { ...b, status: "Returned" };
+            }
+            return b;
+        });
+        localStorage.setItem("borrowedBooks", JSON.stringify(borrowedBooks));
+
+        // Mark book as available again
+        let books = JSON.parse(localStorage.getItem("books")) || [];
+        let b = books.find(b => String(b.id) === String(book.id));
+        if (b) {
+            b.available = true;
+            localStorage.setItem("books", JSON.stringify(books));
+            book.available = true;
+        }
+
+        alert("Book returned successfully!");
+        renderStatusAndButtons();
+    }
+
+    renderStatusAndButtons();
 });
