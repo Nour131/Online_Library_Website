@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", function() {
     const params = new URLSearchParams(window.location.search);
     const bookId = params.get("id");
 
@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         if (status === "Available") {
             borrowSection.innerHTML = `
-                <button id="borrowBtn" class="borrow-btn">Borrow Book</button>
+                <button id="borrowBtn" class="borrow-btn">Borrow</button>
             `;
             document.getElementById("borrowBtn").addEventListener("click", handleBorrow);
         } else if (isBorrowedByUser()) {
@@ -103,7 +103,7 @@ document.addEventListener("DOMContentLoaded", function () {
         let borrowedBooks = JSON.parse(localStorage.getItem("borrowedBooks")) || [];
         borrowedBooks = borrowedBooks.map(b => {
             if (String(b.bookId) === String(book.id) && b.status === "Borrowed") {
-                return { ...b, status: "Returned" };
+                return {...b, status: "Returned" };
             }
             return b;
         });
@@ -123,4 +123,27 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     renderStatusAndButtons();
+    // Show Edit and Delete buttons if admin
+    const currentUser = JSON.parse(sessionStorage.getItem("currentUser"));
+    const isAdmin = currentUser ? currentUser.role === "admin" : false;
+
+    if (isAdmin) {
+        document.getElementById("adminSection").innerHTML = `
+        <button class="edit-btn" onclick="window.location.href='edit_book.html?id=${book.id}&from=details'">Edit</button>
+        &nbsp;&nbsp;
+        <button class="delete-btn" onclick="deleteBook()">Delete</button>
+    `;
+    }
+
+    function deleteBook() {
+        if (!confirm("Are you sure you want to delete this book?")) return;
+
+        let books = JSON.parse(localStorage.getItem("books")) || [];
+        books = books.filter(b => String(b.id) !== String(bookId));
+        localStorage.setItem("books", JSON.stringify(books));
+
+        alert("Book deleted successfully!");
+        window.location.href = "books_list.html";
+    }
+    window.deleteBook = deleteBook;
 });
