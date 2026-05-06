@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Book Details</title>
@@ -8,14 +9,19 @@
 
 <body>
 
+
+
     <div>
         <nav class='navbar'>
             <div class='logo'>
                 <h2>Online Library</h2>
             </div>
-            <ul id = "nav-links" class="nav-links"></ul>
+            <ul id="nav-links" class="nav-links"></ul>
         </nav>
     </div>
+
+    <a href="books_list.html" class="back-button">Back</a>
+
 
     <h2 class="page-title" id="bookTitle"></h2>
 
@@ -46,11 +52,11 @@
 
         <br>
 
-        <div id="borrowSection"></div>
+        <div style="display:flex; justify-content:center; align-items:center; gap:15px; margin-top:-7px;">
+            <div id="borrowSection"></div>
+            <div id="adminSection"></div>
+        </div>
 
-        <br><br>
-
-        <a href="books_list.html" class="back-button">Back</a>
 
     </div>
 
@@ -59,4 +65,5 @@
     <script src="Navbar.js"></script>
 
 </body>
+
 </html>
