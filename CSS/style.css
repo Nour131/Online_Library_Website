@@ -743,3 +743,37 @@ button:hover {
 .signup-container a:hover {
     text-decoration: underline;
 }
+
+
+/* Borrow & Edit — same size and style */
+
+.borrow-btn,
+.edit-btn {
+    background-color: #6F4E37;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-size: 14px;
+    cursor: pointer;
+    width: 80px;
+}
+
+.borrow-btn:hover,
+.edit-btn:hover {
+    background-color: #461926;
+}
+
+
+/* Add Book — larger */
+
+.add-book-btn {
+    color: white;
+    font-size: 25px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.add-book-btn:hover {
+    background-color: #461926;
+}
