@@ -1,7 +1,10 @@
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", function() {
 
     const currentUser = JSON.parse(sessionStorage.getItem("currentUser"));
-    const isAdmin = currentUser?.role === "admin";
+    const isAdmin = currentUser && currentUser.role === "admin";
+    if (isAdmin) {
+        document.getElementById("addBookDiv").style.display = "block";
+    }
 
     function getBooks() {
         return JSON.parse(localStorage.getItem("books")) || [];
@@ -62,7 +65,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         borrowedBooks = borrowedBooks.map(b => {
             if (String(b.bookId) === String(bookId) && b.status === "Borrowed") {
-                return { ...b, status: "Returned" };
+                return {...b, status: "Returned" };
             }
             return b;
         });
@@ -105,7 +108,7 @@ document.addEventListener("DOMContentLoaded", function () {
             // - If borrowed by this user → red Return button
             // - If borrowed by someone else → dash (no action)
             let editBtn = isAdmin ?
-                `<button class="edit-btn" onclick="window.location.href='edit_book.html?id=${book.id}'">Edit</button>` :
+                `<button class="edit-btn" onclick="window.location.href='edit_book.html?id=${book.id}&from=list'">Edit</button>` :
                 "";
             let actionCell = "";
             if (!isBorrowed) {
