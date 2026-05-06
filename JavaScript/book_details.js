@@ -2,6 +2,10 @@ document.addEventListener("DOMContentLoaded", function() {
     const params = new URLSearchParams(window.location.search);
     const bookId = params.get("id");
 
+    // Move isAdmin to the TOP so all functions can use it
+    const currentUser = JSON.parse(sessionStorage.getItem("currentUser"));
+    const isAdmin = currentUser ? currentUser.role === "admin" : false;
+
     if (!bookId) {
         alert("No book selected.");
         window.location.href = "User_books_list.html";
@@ -9,8 +13,6 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     let books = JSON.parse(localStorage.getItem("books")) || [];
-    let borrowedBooks = JSON.parse(localStorage.getItem("borrowedBooks")) || [];
-
     let book = books.find(b => String(b.id) === String(bookId));
     if (!book) {
         alert("Book not found.");
@@ -45,6 +47,12 @@ document.addEventListener("DOMContentLoaded", function() {
 
         const borrowSection = document.getElementById("borrowSection");
 
+        // Borrow/Return only for regular users
+        if (isAdmin) {
+            borrowSection.innerHTML = "";
+            return;
+        }
+
         if (status === "Available") {
             borrowSection.innerHTML = `
                 <button id="borrowBtn" class="borrow-btn">Borrow</button>
@@ -56,7 +64,6 @@ document.addEventListener("DOMContentLoaded", function() {
             `;
             document.getElementById("returnBtn").addEventListener("click", handleReturn);
         } else {
-            // Borrowed by someone else
             borrowSection.innerHTML = `<p class="unavailable-msg">This book is currently unavailable.</p>`;
         }
     }
@@ -72,7 +79,7 @@ document.addEventListener("DOMContentLoaded", function() {
             return;
         }
 
-        let newBorrow = {
+        borrowedBooks.push({
             borrowId: Date.now(),
             userId: "guest",
             userName: "Guest",
@@ -81,12 +88,9 @@ document.addEventListener("DOMContentLoaded", function() {
             author: book.author || "",
             category: book.category || "",
             status: "Borrowed"
-        };
-
-        borrowedBooks.push(newBorrow);
+        });
         localStorage.setItem("borrowedBooks", JSON.stringify(borrowedBooks));
 
-        // Mark book as unavailable
         let books = JSON.parse(localStorage.getItem("books")) || [];
         let b = books.find(b => String(b.id) === String(book.id));
         if (b) {
@@ -109,7 +113,6 @@ document.addEventListener("DOMContentLoaded", function() {
         });
         localStorage.setItem("borrowedBooks", JSON.stringify(borrowedBooks));
 
-        // Mark book as available again
         let books = JSON.parse(localStorage.getItem("books")) || [];
         let b = books.find(b => String(b.id) === String(book.id));
         if (b) {
@@ -122,17 +125,13 @@ document.addEventListener("DOMContentLoaded", function() {
         renderStatusAndButtons();
     }
 
-    renderStatusAndButtons();
     // Show Edit and Delete buttons if admin
-    const currentUser = JSON.parse(sessionStorage.getItem("currentUser"));
-    const isAdmin = currentUser ? currentUser.role === "admin" : false;
-
     if (isAdmin) {
         document.getElementById("adminSection").innerHTML = `
-        <button class="edit-btn" onclick="window.location.href='edit_book.html?id=${book.id}&from=details'">Edit</button>
-        &nbsp;&nbsp;
-        <button class="delete-btn" onclick="deleteBook()">Delete</button>
-    `;
+            <button class="edit-btn" onclick="window.location.href='edit_book.html?id=${book.id}&from=details'">Edit</button>
+            &nbsp;&nbsp;
+            <button class="delete-btn" onclick="deleteBook()">Delete</button>
+        `;
     }
 
     function deleteBook() {
@@ -145,5 +144,8 @@ document.addEventListener("DOMContentLoaded", function() {
         alert("Book deleted successfully!");
         window.location.href = "books_list.html";
     }
+
     window.deleteBook = deleteBook;
+
+    renderStatusAndButtons();
 });
