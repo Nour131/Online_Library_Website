@@ -82,6 +82,16 @@ document.addEventListener("DOMContentLoaded", function() {
         renderTable();
     }
 
+    function deleteBook(bookId) {
+        if (!confirm("Are you sure you want to delete this book?")) return;
+
+        let books = getBooks().filter(b => String(b.id) !== String(bookId));
+        localStorage.setItem("books", JSON.stringify(books));
+
+        alert("Book deleted successfully!");
+        renderTable();
+    }
+
     function renderTable() {
         let books = getBooks();
         let tbody = document.getElementById("bookTableBody");
@@ -108,7 +118,9 @@ document.addEventListener("DOMContentLoaded", function() {
             // - If borrowed by this user → red Return button
             // - If borrowed by someone else → dash (no action)
             let editBtn = isAdmin ?
-                `<button class="edit-btn" onclick="window.location.href='edit_book.html?id=${book.id}&from=list'">Edit</button>` :
+                `<button class="edit-btn" onclick="window.location.href='edit_book.html?id=${book.id}&from=list'">Edit</button>
+                   &nbsp;&nbsp;
+                  <button class="delete-btn" onclick="deleteBook('${book.id}')">Delete</button>` :
                 "";
             let actionCell = "";
             if (!isBorrowed) {
@@ -136,6 +148,9 @@ document.addEventListener("DOMContentLoaded", function() {
     // Expose handlers globally so onclick attributes can reach them
     window.handleBorrow = handleBorrow;
     window.handleReturn = handleReturn;
+    window.deleteBook = deleteBook;
+
+
 
     renderTable();
 });
