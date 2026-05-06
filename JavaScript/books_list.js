@@ -5,6 +5,9 @@ document.addEventListener("DOMContentLoaded", function() {
     if (isAdmin) {
         document.getElementById("addBookDiv").style.display = "block";
     }
+    if (isAdmin) {
+        document.getElementById("statusHeader").style.display = "none";
+    }
 
     function getBooks() {
         return JSON.parse(localStorage.getItem("books")) || [];
@@ -140,13 +143,13 @@ document.addEventListener("DOMContentLoaded", function() {
 
             let row = document.createElement("tr");
             row.innerHTML = `
-                <td>${book.id}</td>
-                <td>${book.title}</td>
-                <td>${book.author}</td>
-                <td>${book.category}</td>
-                <td class="${isBorrowed ? 'borrowed' : 'available'}">${status}</td>
-                <td><a href="book_details.html?id=${book.id}">View</a></td>
-                <td>${actionCell}</td>
+              <td>${book.id}</td>
+              <td>${book.title}</td>
+              <td>${book.author}</td>
+              <td>${book.category}</td>
+              <td class="${isBorrowed ? 'borrowed' : 'available'}" ${isAdmin ? 'style="display:none;"' : ''}>${status}</td>
+              <td><a href="book_details.html?id=${book.id}">View</a></td>
+              <td>${actionCell}</td>
             `;
             tbody.appendChild(row);
         });
