@@ -119,16 +119,23 @@ document.addEventListener("DOMContentLoaded", function() {
             // - If borrowed by someone else → dash (no action)
             let editBtn = isAdmin ?
                 `<button class="edit-btn" onclick="window.location.href='edit_book.html?id=${book.id}&from=list'">Edit</button>
-                   &nbsp;&nbsp;
+                  &nbsp;&nbsp;
                   <button class="delete-btn" onclick="deleteBook('${book.id}')">Delete</button>` :
                 "";
+
             let actionCell = "";
             if (!isBorrowed) {
-                actionCell = `${editBtn} &nbsp;&nbsp;<button class="borrow-btn" onclick="handleBorrow(${book.id})">Borrow</button>`;
+                actionCell = isAdmin ?
+                    `${editBtn}` :
+                    `<button class="borrow-btn" onclick="handleBorrow('${book.id}')">Borrow</button>`;
             } else if (borrowedByMe) {
-                actionCell = `${editBtn} &nbsp;&nbsp;<button class="return-btn" onclick="handleReturn(${book.id})">Return</button>`;
+                actionCell = isAdmin ?
+                    `${editBtn}` :
+                    `<button class="return-btn" onclick="handleReturn('${book.id}')">Return</button>`;
             } else {
-                actionCell = `${editBtn} &nbsp;&nbsp;<span style="color:#999;">—</span>`;
+                actionCell = isAdmin ?
+                    `${editBtn}` :
+                    `<span style="color:#999;">—</span>`;
             }
 
             let row = document.createElement("tr");
