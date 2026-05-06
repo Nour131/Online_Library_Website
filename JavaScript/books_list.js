@@ -104,13 +104,16 @@ document.addEventListener("DOMContentLoaded", function () {
             // - If available → green Borrow button
             // - If borrowed by this user → red Return button
             // - If borrowed by someone else → dash (no action)
+            let editBtn = isAdmin ?
+                `<button class="edit-btn" onclick="window.location.href='edit_book.html?id=${book.id}'">Edit</button>` :
+                "";
             let actionCell = "";
             if (!isBorrowed) {
-                actionCell = `<button class="borrow-btn" onclick="handleBorrow(${book.id})">Borrow</button>`;
+                actionCell = `${editBtn} &nbsp;&nbsp;<button class="borrow-btn" onclick="handleBorrow(${book.id})">Borrow</button>`;
             } else if (borrowedByMe) {
-                actionCell = `<button class="return-btn" onclick="handleReturn(${book.id})">Return</button>`;
+                actionCell = `${editBtn} &nbsp;&nbsp;<button class="return-btn" onclick="handleReturn(${book.id})">Return</button>`;
             } else {
-                actionCell = `<span style="color:#999;">—</span>`;
+                actionCell = `${editBtn} &nbsp;&nbsp;<span style="color:#999;">—</span>`;
             }
 
             let row = document.createElement("tr");
