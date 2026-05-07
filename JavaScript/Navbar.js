@@ -14,7 +14,6 @@ document.addEventListener("DOMContentLoaded", function () {
         navLinks.innerHTML = `
             <li><a href="search.html">Search</a></li>
             <li><a href="books_list.html">View Books</a></li>
-            <li><a href="borrow_book.html">Borrow Book</a></li>
             <li><a href="borrowed_books.html">My Borrowed Books</a></li>
             <li><a href="#" onclick="logout()">Logout</a></li>
         `;
@@ -23,8 +22,6 @@ document.addEventListener("DOMContentLoaded", function () {
         navLinks.innerHTML = `
             <li><a href="search.html">Search</a></li>
             <li><a href="books_list.html">View Books</a></li>
-            <li><a href="add_book.html">Add Book</a></li>
-            <li><a href="edit_book.html">Edit Book</a></li>
             <li><a href="#" onclick="logout()">Logout</a></li>
         `;
     }
