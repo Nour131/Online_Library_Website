@@ -1,6 +1,11 @@
-# 📚 Online Library Website
+# 📚 Online Library Website – Frontend
 
 An online library management website developed using Django that allows users to browse, search, and manage books through an interactive web interface.
+
+## Backend Repository
+
+Backend implementation:  
+[Online Library Backend Repo](https://github.com/Nourhasann/online_library_website)
 
 ---
 
@@ -23,7 +28,6 @@ This project is a web-based online library system designed to simplify book mana
 
 ## Technologies Used
 
-- Python
 - HTML
 - CSS
 - JavaScript
