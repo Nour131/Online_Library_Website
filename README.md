@@ -4,8 +4,7 @@ An online library management website developed using Django that allows users to
 
 ## Backend Repository
 
-Backend implementation:  
-[Online Library Backend Repo](https://github.com/Nourhasann/online_library_website)
+Backend implementation: [Online Library Backend Repo](https://github.com/Nourhasann/online_library_website)
 
 ---
 
