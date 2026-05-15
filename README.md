@@ -66,6 +66,6 @@ The project follows the Django MVC/MVT architecture and includes:
 ## Contirbutors
 - [Malak Hassan](https://github.com/Malakhassan8)
 - [Nour Hassan](https://github.com/Nourhasann)
-- [Nour Mohamed](https://github.com/Nour131)
+- [Rabab Mohamed](https://github.com/Rabab-Okasha)
 - [Steven Onsi](https://github.com/stevenonsi)
 
