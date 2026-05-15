@@ -16,7 +16,6 @@ This project is a web-based online library system designed to simplify book mana
 - Book browsing and searching
 - Add, update, and delete books
 - User authentication system
-- Database management using Django ORM
 - Responsive website design
 - Organized book catalog system
 
@@ -25,24 +24,9 @@ This project is a web-based online library system designed to simplify book mana
 ## Technologies Used
 
 - Python
-- Django
 - HTML
 - CSS
 - JavaScript
-- SQLite
-- Bootstrap
-
----
-
-## Project Structure
-
-The project follows the Django MVC/MVT architecture and includes:
-
-- Frontend templates
-- Backend logic using Django views
-- Database models
-- Static files and styling
-- User authentication and routing
 
 ---
 
